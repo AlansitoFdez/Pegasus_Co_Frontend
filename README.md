@@ -1,16 +1,33 @@
-# React + Vite
+# Pegasus & Co. - Sistema de Gestión Aeronáutica
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto es una solución integral para la gestión de flotas aéreas, compuesta por una API REST (Backend) y una Single Page Application (Frontend). Permite el control total sobre aerolíneas y sus respectivos vuelos.
 
-Currently, two official plugins are available:
+## 👥 Autor
+* **Nombre:** Alan Fernández Diosdado
+* **Proyecto:** Práctica Final - Desarrollo Web Full Stack
+* **Enlace:** https://github.com/AlansitoFdez/Pegasus_Co_Frontend.git
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🗄️ Configuración de la Base de Datos
 
-## Expanding the ESLint configuration
+El sistema utiliza **MySQL** como motor de base de datos. Para su correcto funcionamiento, se deben seguir estos pasos:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### 1. Credenciales de Acceso
+El backend está configurado para conectar con los siguientes datos (ver `config.js`):
+* **Usuario:** `pegasus`
+* **Contraseña:** `pegasus`
+* **Base de Datos:** `pegasus`
+* **Puerto:** `3306`
+
+### 2. Script de Configuración Inicial
+Ejecuta el siguiente código en tu terminal de MySQL o MySQL Workbench para crear el entorno:
+
+```sql
+CREATE DATABASE IF NOT EXISTS pegasus;
+
+CREATE USER 'pegasus'@'localhost' IDENTIFIED WITH mysql_native_password BY 'pegasus';
+GRANT ALL PRIVILEGES ON pegasus.* TO 'pegasus'@'localhost';
+
+FLUSH PRIVILEGES;

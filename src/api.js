@@ -5,12 +5,12 @@ import axios from 'axios';
  * Base URL: http://localhost:3000/api
  * Content-Type: application/json
  */
+const baseURL = window.__APP_CONFIG__
+    ? window.__APP_CONFIG__.API_URL
+    : "http://localhost:3000/api";
+
 const api = axios.create({
-  baseURL: 'http://44.217.226.156:3000/api',
-  timeout: 5000,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+    baseURL: baseURL,
 });
 
 /**
